@@ -49,11 +49,17 @@
 
 cc.game.onStart = function(){
     cc.view.adjustViewPort(true);
-    cc.view.setDesignResolutionSize(800, 450, cc.ResolutionPolicy.SHOW_ALL);
+    
+    //多分辨率适应
+    cc.view.setDesignResolutionSize(640, 960, cc.ResolutionPolicy.FIXED_WIDTH);
     cc.view.resizeWithBrowserSize(true);
-    //load resources
+    
+    //显示loading图片
+   // cc._loaderImage = res.loading_jpg;
+    
+    //加载资源
     cc.LoaderScene.preload(g_resources, function () {
-        cc.director.runScene(new HelloWorldScene());
+    	cc.director.runScene(new HomeScene());
     }, this);
 };
 cc.game.run();
